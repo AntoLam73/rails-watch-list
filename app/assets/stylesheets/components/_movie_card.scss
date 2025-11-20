@@ -1,0 +1,45 @@
+.movie-card {
+  border-radius: 8px;
+  background: white;
+  overflow: hidden;
+}
+
+.movie-card-img img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  filter: grayscale(60%);
+}
+
+.movie-card-body h5 {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.movie-card-body .rating {
+  color: #f4b400;
+  font-weight: 600;
+}
+
+.movie-card-body p {
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.movie-card-body .quote {
+  font-size: 1.3rem;
+  margin-right: 4px;
+  color: #555;
+}
+
+.delete-link {
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.delete-link:hover {
+  text-decoration: underline;
+  color: rgb(120, 0, 0);
+}
