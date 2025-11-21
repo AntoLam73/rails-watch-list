@@ -7,9 +7,33 @@
 
 
 <div class="container bg-light mt-3 pb-4 mb-4 px-4 rounded border shadow-sm">
-  <div class="d-flex justify-content-between align-items-center">
+  <div class="d-flex justify-content-between align-items-center m-3">
     <h3 class="mt-2">My Lists:</h3>
-    <%= link_to "Add a new List", new_list_path, :class=>"btn btn-primary m-3" %>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add new List</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add new list</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= form_with model: @list, url: lists_path, local: true do |f| %>
+              <div class="mb-3">
+                <%= f.label :name, 'List name:', class: 'col-form-label' %>
+                <%= f.text_field :name, class: 'form-control', id: 'recipient-name' %>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= f.submit 'Create List', class: 'btn btn-primary' %>
+          </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="d-grid gap-3" style="grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); grid-auto-rows: auto;">
