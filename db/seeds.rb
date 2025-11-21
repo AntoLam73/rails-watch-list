@@ -22,28 +22,3 @@ end
 
 puts "Created #{Movie.count} movies."
 
-
-puts 'Creating lists...'
-list_names = ['Classic movies', 'Superhero']
-list_names.each do |name|
-  List.create!(name: name)
-end
-
-puts "Created #{List.count} lists."
-
-
-# Associating movies to lists with bookmarks
-puts 'Creating bookmarks...'
-List.all.each do |list|
-  movies_sample = Movie.order('RANDOM()').limit(5)
-  movies_sample.each do |movie|
-    Bookmark.create!(
-      list: list,
-      movie: movie,
-      comment: "Great movie!"
-    )
-  end
-end
-puts "Created #{Bookmark.count} bookmarks."
-
-puts 'Finished!'
