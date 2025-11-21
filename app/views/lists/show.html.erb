@@ -9,7 +9,6 @@
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovieModal">Add a new movie</button>
 </div>
 
-<!-- Add Movie Modal -->
 <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -50,7 +49,6 @@
         </p>
 
         <div class="d-flex justify-content-between align-items-center">
-          <%# add the comment when creating a new bookmark %>
           <p class="mb-0"><strong>Comment:</strong> "<%= movie.bookmarks.find_by(list: @list).comment %>"</p>
           <% bookmark = movie.bookmarks.find_by(list: @list) %>
           <% if bookmark %>
