@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.istockphoto.com/id/1007557230/photo/movie-projector-on-dark-background.jpg?s=612x612&w=0&k=20&c=bPgXKrqKU4nrWgJ_RXgLe9KN4SIitgTIcRobxxBiXTo=);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/fotos-premium/fliegende-popcorn-3d-brille-filmrolle-und-schindeln-auf-gelbem-hintergrund-kinofilmkonzept-3d_989822-1302.jpg?semt=ais_incoming&w=740&q=80);">
   <div class="container text-center">
     <h1><%= @list.name %></h1>
     <%= link_to "Back to my lists", lists_path, class: "btn btn-secondary btn-sm mt-3" %>
@@ -9,9 +9,9 @@
   <%= link_to "Add a new movie", new_list_bookmark_path(@list), class: "btn btn-primary" %>
 </div>
 
-<div class="container mt-2">
+<div class="d-flex container-fluid mt-2 flex-wrap gap-5 justify-content-center">
   <% @list.movies.each do |movie| %>
-    <div class="movie-card shadow-sm mb-4">
+    <div class="movie-card shadow-sm mb-4 col-12 col-md-6 col-lg-4">
       <div class="movie-card-img">
         <img src="<%= movie.poster_url %>" alt="Movie Poster">
       </div>
@@ -28,7 +28,12 @@
         </p>
 
         <div class="d-flex justify-content-between align-items-center">
-          <a href="#" class="text-danger small delete-link">delete</a>
+          <%# add the comment when creating a new bookmark %>
+          <p class="mb-0"><strong>Comment:</strong> "<%= movie.bookmarks.find_by(list: @list).comment %>"</p>
+          <% bookmark = movie.bookmarks.find_by(list: @list) %>
+          <% if bookmark %>
+            <%= button_to 'Delete', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link text-danger small p-0' %>
+          <% end %>
         </div>
       </div>
     </div>

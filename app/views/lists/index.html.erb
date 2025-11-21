@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHx8);">
   <div class="container text-center text-white">
     <h1>Save any kind of movies</h1>
-    <p>Classic</p>
+    <p>Create your own lists</p>
   </div>
 </div>
 
@@ -16,7 +16,16 @@
     <% @lists.each do |list| %>
       <div class="cards">
         <a href="lists/<%= list.id %>" class="list-group-item list-group-item-action" aria-current="true">
-          <div class="card-category text-center p-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/id/1007557230/photo/movie-projector-on-dark-background.jpg?s=612x612&w=0&k=20&c=bPgXKrqKU4nrWgJ_RXgLe9KN4SIitgTIcRobxxBiXTo=);">
+          <div class="card-category text-center p-4" style="
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/fotos-premium/fliegende-popcorn-3d-brille-filmrolle-und-schindeln-auf-gelbem-hintergrund-kinofilmkonzept-3d_989822-1302.jpg?semt=ais_incoming&w=740&q=80);
+            background-size: cover;
+            background-position: center;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            ">
             <strong class="text-light"><%= list.name %></strong>
           </div>
         </a>
